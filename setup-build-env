@@ -1,0 +1,33 @@
+#!/bin/bash
+
+set -e
+set -u
+
+HERE="$(cd $(dirname "${0}"); pwd)"
+
+board=rpi0-w
+yocto_version=thud
+
+function main {
+    fetch
+    start_subshell
+}
+
+function fetch {
+    git clone git@github.com:GoChik/poky.git -b ${yocto_version}
+    git clone git://git.openembedded.org/meta-openembedded -b ${yocto_version}
+    git clone https://github.com/agherzan/meta-raspberrypi.git -b ${yocto_version}
+    git clone git@github.com:GoChik/meta-chik.git
+}
+
+function start_subshell {
+    set +u
+    export PATH="${HERE}:${PATH}"
+    export PROMPT_COMMAND="PS1='(yocto) \[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '"
+    export TEMPLATECONF="$(pwd)/conf"
+
+    source poky/oe-init-build-env "poky/build-${board}"
+    exec bash -i
+}
+
+main ${@}
