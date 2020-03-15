@@ -7,7 +7,7 @@ HERE="$(cd $(dirname "${0}"); pwd)"
 
 board=rpi0-w
 yocto_version=zeus
-directory=/home/pokyuser/src
+directory=${HOME}/src
 
 function main {
     mkdir -p ${directory}
