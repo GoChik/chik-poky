@@ -1,0 +1,54 @@
+#!/bin/bash
+
+set -e
+set -u
+
+HERE="$(cd $(dirname "${0}"); pwd)"
+
+board=rpi0-w
+yocto_version=zeus
+directory=/home/pokyuser/src
+
+function main {
+    mkdir -p ${directory}
+    cd ${directory}
+    fetch_yocto
+    fetch_others
+    start_subshell
+}
+
+function fetch_others {
+    if [[ ! -d unipi-kernel ]]; then
+        git clone https://git.unipi.technology/UniPi/unipi-kernel.git
+    fi
+
+    if [[ ! -d linux ]]; then
+        https://github.com/raspberrypi/linux.git
+    fi
+}
+
+function fetch_yocto {
+    if [[ -d yocto ]]; then
+        return
+    fi
+
+    mkdir yocto
+    pushd yocto
+        git clone git@github.com:GoChik/poky.git -b ${yocto_version}
+        git clone https://github.com/agherzan/meta-raspberrypi.git -b ${yocto_version}
+        git clone git@github.com:GoChik/meta-chik.git
+    popd
+}
+
+function start_subshell {
+    set +u
+    export MACHINE=${board}
+    export PATH="${HERE}:${PATH}"
+    export PROMPT_COMMAND="PS1='(yocto) \[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '"
+    export TEMPLATECONF="$(pwd)/conf"
+
+    source poky/oe-init-build-env "build-${board}"
+    exec bash -i
+}
+
+main ${@}
