@@ -23,7 +23,7 @@ function fetch_others {
     fi
 
     if [[ ! -d linux ]]; then
-        https://github.com/raspberrypi/linux.git
+        git clone https://github.com/raspberrypi/linux.git --depth=10
     fi
 }
 
