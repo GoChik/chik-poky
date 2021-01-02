@@ -5,7 +5,7 @@ set -u
 
 HERE="~/src"
 
-board=unipi-neuron
+board=${board:-unipi-neuron}
 yocto_version=zeus
 directory=${HOME}/src
 
