@@ -1,0 +1,35 @@
+{
+    "machine": "unipi-neuron",
+    "layers": [
+        {
+            "method": "checkout",
+            "path": "poky",
+            "args":["https://git.yoctoproject.org/git/poky", "dunfell"]
+        },
+        {
+            "method": "checkout",
+            "path": "meta-openembedded",
+            "args": ["https://github.com/openembedded/meta-openembedded.git", "dunfell"]
+        },
+        {
+            "method": "checkout",
+            "path": "meta-raspberrypi",
+            "args": ["https://github.com/agherzan/meta-raspberrypi.git", "dunfell"]
+        },
+        {
+            "method": "checkout",
+            "path": "meta-swupdate",
+            "args": ["https://github.com/sbabic/meta-swupdate.git", "dunfell"]
+        },
+        {
+            "method": "checkout",
+            "path": "meta-rust",
+            "args": ["https://github.com/meta-rust/meta-rust.git", "master"]
+        },
+        {
+            "method": "checkout",
+            "path": "meta-chik",
+            "args": ["git@github.com:GoChik/meta-chik.git", "master"]
+        }
+    ]
+}

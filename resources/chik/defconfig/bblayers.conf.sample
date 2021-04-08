@@ -11,6 +11,7 @@ BBLAYERS ?= " \
   ##OEROOT##/meta-yocto-bsp \
   ##OEROOT##/../meta-openembedded/meta-oe \
   ##OEROOT##/../meta-raspberrypi \
+  ##OEROOT##/../meta-rust \
   ##OEROOT##/../meta-swupdate \
   ##OEROOT##/../meta-chik \
   "
