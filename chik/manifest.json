@@ -1,4 +1,5 @@
 {
+    "host_ubuntu_version": "18.04",
     "machine": "unipi-neuron",
     "layers": [
         {
