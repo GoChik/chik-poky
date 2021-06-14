@@ -3,5 +3,5 @@ Development environment based on Docker
 
 ### How to use
 ```
-./dev-env_1.1.sh chik
+./dev-env_1.2.sh chik
 ```
