@@ -29,6 +29,16 @@
         },
         {
             "method": "checkout",
+            "path": "meta-snapcast",
+            "args": ["git@github.com:GoChik/meta-snapcast.git", "dunfell"]
+        },
+        {
+            "method": "checkout",
+            "path": "meta-go-bin",
+            "args": ["https://github.com/GoChik/meta-go-bin.git", "master"]
+        },
+        {
+            "method": "checkout",
             "path": "meta-chik",
             "args": ["git@github.com:GoChik/meta-chik.git", "master"]
         }

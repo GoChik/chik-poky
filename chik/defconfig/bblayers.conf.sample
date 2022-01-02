@@ -13,5 +13,7 @@ BBLAYERS ?= " \
   ##OEROOT##/../meta-raspberrypi \
   ##OEROOT##/../meta-rust \
   ##OEROOT##/../meta-swupdate \
+  ##OEROOT##/../meta-snapcast \
+  ##OEROOT##/../meta-go-bin \
   ##OEROOT##/../meta-chik \
   "
