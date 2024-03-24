@@ -1,5 +1,5 @@
 {
-    "host_ubuntu_version": "18.04",
+    "host_distro": "ubuntu-18.04",
     "machine": "unipi-neuron",
     "layers": [
         {
@@ -30,7 +30,7 @@
         {
             "method": "checkout",
             "path": "meta-snapcast",
-            "args": ["git@github.com:GoChik/meta-snapcast.git", "dunfell"]
+            "args": ["https://github.com/GoChik/meta-snapcast.git", "dunfell"]
         },
         {
             "method": "checkout",
@@ -40,7 +40,7 @@
         {
             "method": "checkout",
             "path": "meta-chik",
-            "args": ["git@github.com:GoChik/meta-chik.git", "master"]
+            "args": ["https://github.com/GoChik/meta-chik.git", "master"]
         }
     ]
 }
